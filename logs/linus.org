@@ -1,11 +1,19 @@
-#+TITLE: Linus diary
+#+OPTIONS: p:t
+#+TITLE: Linus Diary
 
-All TODOs will be copied to the next diary entry and marked with DONE, SCHD, or TODO.
+* Diary information
+** TODO
+All todos will left at the diary entry where the point came up.
+After this they will be marked as DONE and the time of closing will be put under the item.
 
-* Meeting [2022-2-9 Wed]
-** Came up with project idea.
 
-* Meeting [2022-2-18 Fri] 
-** TODO: Fix the trello a lil
-** TODO: Fix the readme
-** TODO: Start exporting the diary to make it more easily readable
+* Meetings
+** Meeting [2022-02-09 ons]
+Came up with project idea.
+
+** Meeting [2022-02-18 fre]
+*** DONE Fix the Trello structure
+CLOSED: [2022-02-18 fre 14:31]
+*** TODO Fix the README
+*** DONE Start exporting the diary to make it more easily readable
+CLOSED: [2022-02-18 fre 14:29]
