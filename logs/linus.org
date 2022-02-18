@@ -1,0 +1,3 @@
+#+TITLE: Linus epic log
+* TODO: Make this not an org-mode file. :)
+* TODO: Fix the trello a lil
