@@ -1,3 +1,11 @@
-#+TITLE: Linus epic log
-* TODO: Make this not an org-mode file. :)
-* TODO: Fix the trello a lil
+#+TITLE: Linus diary
+
+All TODOs will be copied to the next diary entry and marked with DONE, SCHD, or TODO.
+
+* Meeting [2022-2-9 Wed]
+** Came up with project idea.
+
+* Meeting [2022-2-18 Fri] 
+** TODO: Fix the trello a lil
+** TODO: Fix the readme
+** TODO: Start exporting the diary to make it more easily readable
