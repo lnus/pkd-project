@@ -14,6 +14,7 @@ Came up with project idea.
 ** Meeting [2022-02-18 fre]
 *** DONE Fix the Trello structure
 CLOSED: [2022-02-18 fre 14:31]
-*** TODO Fix the README
+*** DONE Fix the README (needs slight updating still, but a baseline has been established)
+CLOSED: [2022-02-18 fre 17:32]
 *** DONE Start exporting the diary to make it more easily readable
 CLOSED: [2022-02-18 fre 14:29]
