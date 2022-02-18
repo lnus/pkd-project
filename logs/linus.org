@@ -2,7 +2,7 @@
 #+TITLE: Linus Diary
 
 * Diary information
-** TODO
+** TODOs
 All todos will left at the diary entry where the point came up.
 After this they will be marked as DONE and the time of closing will be put under the item.
 
