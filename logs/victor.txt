@@ -7,4 +7,6 @@ Coming up with project ideas.
 Deciding which project to do, in group.
 
 18/02-22
-13.00-
+13.00-16.45
+Cleaned up in Trello.
+Trying to set up Gloss. Problems with GLUT.
