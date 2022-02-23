@@ -10,3 +10,22 @@ Deciding which project to do, in group.
 13.00-16.45
 Cleaned up in Trello.
 Trying to set up Gloss. Problems with GLUT.
+
+21/02-22
+09:15-10:00
+
+22/02-22
+08:30-10:00
+
+22/02-22
+19:00-21:30
+Installed ubuntu in vm, tried to install ghcup. Did not work.
+
+23/02-22
+09:00-10:15
+Tried to install wsl. Did not manage to.
+
+23/02-22
+14:15-16:00
+Managed to install everything in vm. It finally works!
+
