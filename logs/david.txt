@@ -1,1 +1,30 @@
 DIARY
+
+20-02-03 10:00-12:00
+Discussed project process and how we wanted to choose idea 
+
+20-02-10 8:00-10:00
+Chose idea for project
+
+20-02-16 15:15-16:00
+Meeting with Prasanth about project idea
+
+20-02-18 13:00-17:00
+Setup gloss, failed
+setup Trello
+
+20-02-21 8:00-10:00
+discussed project format
+
+
+20-02-22 8:00-10:00
+Meeting with Prasanth
+more gloss fails
+
+20-02-23 13:00-16:00
+Gloss finally setup
+
+20-02-24 11:00-12:00 and 15:20-17:00
+git Diary fixed
+downloaded project files from git
+Getting used to gloss library
