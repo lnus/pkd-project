@@ -32,3 +32,7 @@ Managed to install everything in vm. It finally works!
 24/02-22
 09:45-12:00
 Fixed wsl instead. vm got screwed.
+
+24/02-22
+13:00-17:30
+Befriending Gloss.
