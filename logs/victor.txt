@@ -1,42 +1,50 @@
-09/02-22
+09/02
 19.00-20.30
 Coming up with project ideas.
 
-10/02-22
+10/02
 08.30 - 10.15
 Deciding which project to do, in group.
 
-18/02-22
+18/02
 13.00-16.45
 Cleaned up in Trello.
 Trying to set up Gloss. Problems with GLUT.
 
-21/02-22
+21/02
 09:15-10:00
 
-22/02-22
+22/02
 08:30-10:00
 
-22/02-22
+22/02
 19:00-21:30
 Installed ubuntu in vm, tried to install ghcup. Did not work.
 
-23/02-22
+23/02
 09:00-10:15
 Tried to install wsl. Did not manage to.
 
-23/02-22
+23/02
 14:15-16:00
 Managed to install everything in vm. It finally works!
 
-24/02-22
+24/02
 09:45-12:00
 Fixed wsl instead. vm got screwed.
 
-24/02-22
+24/02
 13:00-17:30
 Befriending Gloss.
 
-24/02-22
+24/02
 20:00-22:30
 Becoming more friends with Gloss.
+
+25/02
+09:00-13:00
+Started creating eye-shapes.
+
+25/02
+15:15-16:30
+More eye-shapes.
