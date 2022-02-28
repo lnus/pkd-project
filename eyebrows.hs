@@ -10,7 +10,7 @@ lNormalbrow      = pictures [lNormalbrowLeft, lNormalbrowRight]
 lNormalbrowRight = polygon  [(0,0),(0,45),(-100,70),(-120,70),(-120,20),(-100,20),(-60,10),(0,0)]
 lNormalbrowLeft  = polygon  [(-120,70),(-200,55),(-250,35),(-275,20),(-300,0),(-200,20),(-120,20)]
 
-thinbrow       = pictures [translate 0 80 lThinbrow, translate 0 0 rThinbrow]
+thinbrow       = pictures [translate 0 0 lThinbrow, translate 0 0 rThinbrow]
 rThinbrow      = pictures [rThinbrowLeft, rThinbrowRight]
 rThinbrowLeft  = polygon  [(0,0),(0,20),(100,45),(120,45),(120,25),(100,35),(0,0)]
 rThinbrowRight = polygon  [(120,25),(120,45),(200,30),(250,20),(275,10),(290,5),(300,0),(200,10),(120,25)]
