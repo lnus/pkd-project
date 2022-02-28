@@ -31,3 +31,6 @@ Getting used to gloss library
 
 22-02-25 09:00-12:00 
 Started doing som faceShapes, completed 3 diffrent ones
+
+22-02-28 09:30-12:00
+Did fourth faceShape and started on eyebrows
