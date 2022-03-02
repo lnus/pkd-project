@@ -3,7 +3,9 @@ module Main where
 import Colors
 import Control.Exception
 import Eyes
+import FaceShapes
 import Graphics.Gloss
+import System.Exit (ExitCode (ExitSuccess), exitSuccess, exitWith)
 
 -- We should load in the things that are wanted and put them
 -- in an array, after this, compile all things in order
@@ -27,19 +29,23 @@ presentOptions aux (x : xs) = show aux ++ ". " ++ x ++ "\n" ++ presentOptions (a
 -- Is this necessary? ^
 
 -- TODO: Document this
--- FIXME: Clamp options to length of second argument (this will be what the user is presented with)
 -- FIXME: Make the user able to break out of this. Since well... it's currently impossible.
 getChoice :: String -> [String] -> IO Option
 getChoice question options = do
   putStrLn question
   putStrLn (presentOptions 1 options)
+  putStrLn "9. Exit the program"
   catch
     ( do
         line <- getLine
-        evaluate (read line)
+        if read line <= length options || read line == 9
+          then evaluate (read line) -- safety measure, in case of bad input
+          else do
+            putStrLn ("[INPUTERR] Options must be between 1 and " ++ show (length options) ++ " or 9.")
+            getChoice question options
     )
     ( ( \_ -> do
-          putStrLn "Invalid input, must be a number."
+          putStrLn "[INPUTERR] Invalid input, must be a number."
           getChoice question options
       ) ::
         SomeException -> IO Option
@@ -49,13 +55,12 @@ getChoice question options = do
    Run the generator
    Side-effects: Quite a lot, actually
 -}
--- TODO: Make this not so primite, the selection system has to be divided up into another function.
 -- TODO: Combine inputs from Eyes, Face, Eyebrows etc...
--- webhook test
 main :: IO ()
 main = do
   putStrLn "Generate a face!"
-  choice <- getChoice "What eyes do you want?" ["Epic eyes", "Stupid eyes >:("]
-  generateRender [eyes !! (choice -1)]
-  where
-    eyes = [rEye2 lightBlue, lEye2 lightGreen]
+  eye_choice <- getChoice "What eyes do you want?" ["Eye 1", "Eye 2"]
+  face_choice <- getChoice "Which face do you want?" ["Face 1", "Face 2"] -- FIXME: Doesn't do anything yet
+  if eye_choice == 9 -- FIXME: Make this more dynamic for all choices
+    then exitSuccess
+    else generateRender [color lightSkin eggshape, generateEye 200 0 (show eye_choice) lightBlue]

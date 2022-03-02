@@ -38,3 +38,6 @@ Next step, handle the answers we receive.
 
 ** 15:29
 Scrapping the idea to save avatars to a file, unless we have a bunch of extra time at the end.
+
+** 15:50
+Setup webhooks for GitHub and our Discord server, for fun.
