@@ -1,3 +1,4 @@
+module FaceShapes where
 import Graphics.Gloss
 
 faceshapes = pictures [eggshape,diamondshape,squareshape,roundshape]
