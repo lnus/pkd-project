@@ -47,3 +47,4 @@ generateMouth x y mo clr
     | mo == "1"     = pictures [(Translate x y (mo1 clr))]
     | mo == "2"     = pictures [(Translate x y (mo2 clr))]
     | mo == "3"     = pictures [(Translate x y (mo3 clr))]
+    | otherwise = Blank
