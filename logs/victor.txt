@@ -63,3 +63,16 @@ Prepping for meeting and having meeting.
 09:15-12:00
 Finnishing lips.
 Starting with colors.
+
+02/03
+09:15-11:00
+Reorganized Eyes.hs, Colors.hs etc.
+
+02/03
+11:15-12:00
+Tried different eye placement funcitons.
+
+02/03
+15:20-17:00
+Added some colors. Cleaned up in files.
+Made generate functions.
