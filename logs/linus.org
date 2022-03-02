@@ -18,3 +18,17 @@ CLOSED: [2022-02-18 fre 14:31]
 CLOSED: [2022-02-18 fre 17:32]
 *** DONE Start exporting the diary to make it more easily readable
 CLOSED: [2022-02-18 fre 14:29]
+
+** Writing [2022-02-22 tue]
+I've written a blog post about making Gloss library work on Windows. This was a huge roadblock
+but after this we should be able to get it to work on all of our devices.
+
+https://linusblog.netlify.app/haskell_gloss_wsl/
+
+** Individual work [2022-02-28 mon]
+Done some slight work on the CLI for the program.
+
+** Individual work [2022-03-02 wed]
+I have been very sick for the past week, and work has been slow from my part.
+I have been working on the CLI for the program and will begin work on merging everything afterwards.
+
