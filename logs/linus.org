@@ -32,3 +32,9 @@ Done some slight work on the CLI for the program.
 I have been very sick for the past week, and work has been slow from my part.
 I have been working on the CLI for the program and will begin work on merging everything afterwards.
 
+** 15:25
+CLI input has been made better. Choices have been implemented, and answers can be received.
+Next step, handle the answers we receive.
+
+** 15:29
+Scrapping the idea to save avatars to a file, unless we have a bunch of extra time at the end.
