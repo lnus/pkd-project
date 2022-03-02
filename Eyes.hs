@@ -1,6 +1,7 @@
 module Eyes where
 import Graphics.Gloss
 import Colors
+import FaceShapes
 
 genX :: Float -> Float -> [(Float, Float)]
 genX aux max | aux < max = (aux, 0) : (aux, max) : (aux, 0) : genX (aux + 50) max
@@ -178,10 +179,11 @@ lwhite2 = color white (Polygon [lupperLineE2p1,lupperLineE2p2,lupperLineE2p3,lup
 rEye2 clr = (pictures [rwhite2,(color clr riris2),rpupil2,rglare2,lowerLineE2,upperEye2Lid])
 lEye2 clr = (pictures [lwhite2,(color clr liris2),lpupil2,lglare2,llowerLineE2,lupperEye2Lid])
 -----------------------------------------------------
---makeFace2 clr = display FullScreen white (pictures [eggshape,translate (-200) 0 (rEye2 clr),translate 200 0 (lEye2 clr)])
 
-generateEye eye clr
+-- Generates eyes by choosing which "eye-shape", placement (x-, y-coordinates) and color.
+generateEye :: Float -> Float -> String -> Color -> Picture
+generateEye x y eye clr
     | eye == "1"     = pictures [(rEye1 clr),(lEye1 clr)]
-    | eye == "2"     = pictures [(rEye2 clr),(lEye2 clr)]
+    | eye == "2"     = pictures [(Translate (-x) y (rEye2 clr)),(Translate x y (lEye2 clr))]
 
---test2Eye2 = display FullScreen cyan (pictures [l,reye2])
+test3Eye2 = display FullScreen white (pictures [(color darkerSkin eggshape),(generateEye 200 0 "2" lightBlue)])
