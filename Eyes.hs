@@ -3,6 +3,7 @@ import Graphics.Gloss
 import Colors
 import FaceShapes
 ------------------------------------------------------------
+-- COORDINATES FOR EYE1 --
 u1Eye1 = (-250, 0)
 u1Eye2 = (-200, 25)
 u1Eye3 = (-150, 25)
@@ -52,13 +53,10 @@ lEyeWhite = Translate 350 0 eyeWhite
 
 rEye1 clr = pictures [rEyeWhite,lEyeWhite,(color clr rIris),rPupil,rGlare,ruEyeLid,rlEyeLid]
 lEye1 clr = pictures [lEyeWhite,lEyeWhite,(color clr lIris),lPupil,lGlare,luEyeLid,llEyeLid]
+
 normalEyes  = pictures [rEyeWhite,lEyeWhite,rIris,lIris,rPupil,lPupil,rGlare,lGlare,ruEyeLid,luEyeLid,rlEyeLid,llEyeLid]
-bigEyes :: Picture
 bigEyes     = scale 2 2 normalEyes
 smallEyes   = scale 0.5 0.5 normalEyes
-
-eyesNormGrid = display FullScreen (light(light (light red))) (pictures [l,normalEyes])
-eyesNorm = display FullScreen (light(light(light (light red)))) (pictures [normalEyes])
 
 -----------------------------------------
 -- COORDINATES FOR RIGHT EYE2 --
