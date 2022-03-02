@@ -1,5 +1,6 @@
 module Main where
 
+import Colors
 import Control.Exception
 import Eyes
 import Graphics.Gloss
@@ -44,20 +45,16 @@ getChoice question options = do
         SomeException -> IO Option
     )
 
--- this doesnt work
--- combine :: Picture -> [Picture] -> Picture
--- combine li pic = li : (pictures pic)
-
 {- main
    Run the generator
    Side-effects: Quite a lot, actually
 -}
 -- TODO: Make this not so primite, the selection system has to be divided up into another function.
+-- TODO: Combine inputs from Eyes, Face, Eyebrows etc...
 main :: IO ()
 main = do
   putStrLn "Generate a face!"
   choice <- getChoice "What eyes do you want?" ["Epic eyes", "Stupid eyes >:("]
   generateRender [eyes !! (choice -1)]
   where
-    fullFace = pictures [rEye2, lEye2] -- this will be dynamic
-    eyes = [rEye2, lEye2]
+    eyes = [rEye2 lightBlue, lEye2 lightGreen]
