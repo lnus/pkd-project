@@ -157,5 +157,6 @@ generateEye :: Float -> Float -> String -> Color -> Picture
 generateEye x y eye clr
     | eye == "1"     = pictures [(rEye1 clr),(lEye1 clr)]
     | eye == "2"     = pictures [(Translate (-x) y (rEye2 clr)),(Translate x y (lEye2 clr))]
+    | otherwise = Blank
 
-test3Eye2 = display FullScreen white (pictures [(color darkerSkin eggshape),(generateEye 200 0 "2" lightBlue)])
+-- test3Eye2 = display FullScreen white (pictures [(color darkerSkin eggshape),(generateEye 200 0 "2" lightBlue)])
