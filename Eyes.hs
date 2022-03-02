@@ -1,5 +1,7 @@
 module Eyes where
 import Graphics.Gloss
+import Colors
+import FaceShapes
 
 genX :: Float -> Float -> [(Float, Float)]
 genX aux max | aux < max = (aux, 0) : (aux, max) : (aux, 0) : genX (aux + 50) max
@@ -51,7 +53,7 @@ pupil  = circleSolid 15
 rPupil = translate (-175) 0 pupil
 lPupil = translate 175 0 pupil
 
-iris  = (color (dark red) (circleSolid 25))
+iris  = (circleSolid 25)
 rIris = translate (-175) 0 iris
 lIris = translate 175 0 iris
 
@@ -70,7 +72,8 @@ eyeWhite    = color white (Polygon [eyeW1,eyeW2,eyeW3,eyeW4,eyeW5,eyeW6,eyeW7,ey
 rEyeWhite = eyeWhite
 lEyeWhite = Translate 350 0 eyeWhite
 
-
+rEye1 clr = pictures [rEyeWhite,lEyeWhite,(color clr rIris),rPupil,rGlare,ruEyeLid,rlEyeLid]
+lEye1 clr = pictures [lEyeWhite,lEyeWhite,(color clr lIris),lPupil,lGlare,luEyeLid,llEyeLid]
 normalEyes  = pictures [rEyeWhite,lEyeWhite,rIris,lIris,rPupil,lPupil,rGlare,lGlare,ruEyeLid,luEyeLid,rlEyeLid,llEyeLid]
 bigEyes :: Picture
 bigEyes     = scale 2 2 normalEyes
@@ -79,11 +82,7 @@ smallEyes   = scale 0.5 0.5 normalEyes
 eyesNormGrid = display FullScreen (light(light (light red))) (pictures [l,normalEyes])
 eyesNorm = display FullScreen (light(light(light (light red)))) (pictures [normalEyes])
 
-
-eggshape = color (light(light(light (light red)))) (polygon [(0,500),(250,450),(350,300),(375,150),(375,0),(350,-150),(300,-300),(200,-400),(50,-500),
-                    (-50,-500),(-200,-400),(-300,-300),(-350,-150),(-375,0),(-375,150),(-350,300),(-250,450),(0,500)])
-
-makeFace1 n = display FullScreen white (pictures [eggshape, n])
+-- makeFace1 n = display FullScreen white (pictures [eggshape, n])
 
 
 -----------------------------------------
@@ -129,7 +128,7 @@ lowerE2p6 = (65,-12.5)
 
 rglare2 = translate (-25) 25 (color (withAlpha 0.4 white) (circleSolid 15))
 rpupil2 = translate 0 17 (circleSolid 25)
-riris2 = translate 0 17 (color blue (circleSolid 50))
+riris2 = translate 0 17 (circleSolid 50)
 rwhite2 = color white (Polygon [rupperLineE2p1,rupperLineE2p2,rupperLineE2p3,rupperLineE2p4,rupperLineE2p5,rupperLineE2p6,rupperLineE2p7,rupperLineE2p8,rupperLineE2p9,rupperLineE2p10,lowerE2p6,lowerE2p5,lowerE2p4,lowerE2p3,lowerE2p2,lowerE2p1,rupperLineE2p1])
 --------------------------------------------------------------
 -- COORDINATES FOR LEFT EYE --
@@ -174,14 +173,17 @@ llowerE2p6 = (65,-12.5)
 
 lglare2 = translate (-25) 25 (color (withAlpha 0.4 white) (circleSolid 15))
 lpupil2 = translate 0 17 (circleSolid 25)
-liris2 = translate 0 17 (color blue (circleSolid 50))
+liris2 = translate 0 17 (circleSolid 50)
 lwhite2 = color white (Polygon [lupperLineE2p1,lupperLineE2p2,lupperLineE2p3,lupperLineE2p4,lupperLineE2p5,lupperLineE2p6,lupperLineE2p7,lupperLineE2p8,lupperLineE2p9,lupperLineE2p10,llowerE2p1,llowerE2p2,llowerE2p3,llowerE2p4,llowerE2p5,llowerE2p6,lupperLineE2p1])
 -----------------------------------------------------
-rEye2 = (pictures [rwhite2,riris2,rpupil2,rglare2,lowerLineE2,upperEye2Lid])
-lEye2 = (pictures [lwhite2,liris2,lpupil2,lglare2,llowerLineE2,lupperEye2Lid])
+rEye2 clr = (pictures [rwhite2,(color clr riris2),rpupil2,rglare2,lowerLineE2,upperEye2Lid])
+lEye2 clr = (pictures [lwhite2,(color clr liris2),lpupil2,lglare2,llowerLineE2,lupperEye2Lid])
 -----------------------------------------------------
-makeFace2 = display FullScreen red (pictures [eggshape,translate (-200) 0 rEye2,translate 200 0 lEye2])
 
+-- Generates eyes by choosing which "eye-shape", placement (x-, y-coordinates) and color.
+generateEye :: Float -> Float -> String -> Color -> Picture
+generateEye x y eye clr
+    | eye == "1"     = pictures [(rEye1 clr),(lEye1 clr)]
+    | eye == "2"     = pictures [(Translate (-x) y (rEye2 clr)),(Translate x y (lEye2 clr))]
 
-
---test2Eye2 = display FullScreen cyan (pictures [l,reye2])
+test3Eye2 = display FullScreen white (pictures [(color darkerSkin eggshape),(generateEye 200 0 "2" lightBlue)])
