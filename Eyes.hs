@@ -152,7 +152,14 @@ lwhite2 = color white (Polygon [lupperLineE2p1,lupperLineE2p2,lupperLineE2p3,lup
 rEye2 clr = (pictures [rwhite2,(color clr riris2),rpupil2,rglare2,lowerLineE2,upperEye2Lid])
 lEye2 clr = (pictures [lwhite2,(color clr liris2),lpupil2,lglare2,llowerLineE2,lupperEye2Lid])
 -----------------------------------------------------
--- Generates eyes by choosing which "eye-shape", placement (x-, y-coordinates) and color.
+
+{-  generateEye x y eyeChoice colorChoice
+    The funciton generates a picture of two eyes.
+    RETURNS: pictures of eyeChoice with corresponding x- and y-coordinates with color colorChoice.
+    PRE: -- NOT SURE
+    EXAMPLES:   generateEye 200 0 "2" lightBlue == pictures [(Translate (-200) 0 (rEye2 lightBlue)),(Translate 200 0 (lEye2 lightBlue))]
+
+-}
 generateEye :: Float -> Float -> String -> Color -> Picture
 generateEye x y eye clr
     | eye == "1"     = pictures [(rEye1 clr),(lEye1 clr)]
