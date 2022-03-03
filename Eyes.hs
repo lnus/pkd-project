@@ -2,6 +2,8 @@ module Eyes where
 import Graphics.Gloss
 import Colors
 import FaceShapes
+import GridExample
+
 ------------------------------------------------------------
 -- COORDINATES FOR EYE1 --
 u1Eye1 = (-250, 0)
@@ -51,13 +53,12 @@ eyeWhite    = color white (Polygon [eyeW1,eyeW2,eyeW3,eyeW4,eyeW5,eyeW6,eyeW7,ey
 rEyeWhite = eyeWhite
 lEyeWhite = Translate 350 0 eyeWhite
 
-rEye1 clr = pictures [rEyeWhite,lEyeWhite,(color clr rIris),rPupil,rGlare,ruEyeLid,rlEyeLid]
-lEye1 clr = pictures [lEyeWhite,lEyeWhite,(color clr lIris),lPupil,lGlare,luEyeLid,llEyeLid]
+rEye1 clr = (translate 175 0 (pictures [rEyeWhite,(color clr rIris),rPupil,rGlare,ruEyeLid,rlEyeLid]))
+lEye1 clr = (translate (-175) 0 (pictures [lEyeWhite,lEyeWhite,(color clr lIris),lPupil,lGlare,luEyeLid,llEyeLid]))
 
 normalEyes  = pictures [rEyeWhite,lEyeWhite,rIris,lIris,rPupil,lPupil,rGlare,lGlare,ruEyeLid,luEyeLid,rlEyeLid,llEyeLid]
 bigEyes     = scale 2 2 normalEyes
 smallEyes   = scale 0.5 0.5 normalEyes
-
 -----------------------------------------
 -- COORDINATES FOR RIGHT EYE2 --
 rupperLineE2p1 = (-75,0)
@@ -158,12 +159,11 @@ lEye2 clr = (pictures [lwhite2,(color clr liris2),lpupil2,lglare2,llowerLineE2,l
     RETURNS: pictures of eyeChoice with corresponding x- and y-coordinates with color colorChoice.
     PRE: -- NOT SURE
     EXAMPLES:   generateEye 200 0 "2" lightBlue == pictures [(Translate (-200) 0 (rEye2 lightBlue)),(Translate 200 0 (lEye2 lightBlue))]
-
 -}
 generateEye :: Float -> Float -> String -> Color -> Picture
 generateEye x y eye clr
-    | eye == "1"     = pictures [(rEye1 clr),(lEye1 clr)]
-    | eye == "2"     = pictures [(Translate (-x) y (rEye2 clr)),(Translate x y (lEye2 clr))]
+    | eye == "1"     = pictures [(translate (-x) y (rEye1 clr)),(translate x y (lEye1 clr))]
+    | eye == "2"     = pictures [(translate (-x) y (rEye2 clr)),(translate x y (lEye2 clr))]
     | otherwise = Blank
 
 -- test3Eye2 = display FullScreen white (pictures [(color darkerSkin eggshape),(generateEye 200 0 "2" lightBlue)])
