@@ -76,3 +76,11 @@ Tried different eye placement funcitons.
 15:20-17:00
 Added some colors. Cleaned up in files.
 Made generate functions.
+
+03/03
+09:00-10:00
+"Fixed" so that generateEye actually works on ALL of the two eye-shapes. Wow
+
+03/03
+16:30-17:20
+Started to write introduction etc on the documentation of the project.
