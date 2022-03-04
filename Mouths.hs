@@ -47,9 +47,9 @@ mo1Lowerlip = pictures [mo1LowPol1,mo1LowPol2,mo1LowPol3]
 --------------------------------------------------------------------------
 --POSSIBLE MOUTHS--
 
-mo1 clr = pictures [(color (dim clr) mo1Upperlip),(color clr mo1Lowerlip)]
-mo2 clr = (color clr (thickArc 180 360 150 12.5))
-mo3 clr = (color clr (thickArc 360 180 150 12.5))
+mo1 clr = translate 0 (-50) (scale 2 1.5 (pictures [(color (dim clr) mo1Upperlip),(color clr mo1Lowerlip)]))
+mo2 clr = scale 0.75 0.50 (color clr (thickArc 180 360 150 12.5))
+mo3 clr = translate 0 (-100) (scale 0.75 0.50 (color clr (thickArc 360 180 150 12.5)))
 
 --dispmo1 = display FullScreen white (pictures [eggshape,(color (light(light(red))) mo1Upperlip), (color (light (light (light red))) mo1Lowerlip)])
 --dispmo2 = display FullScreen white (pictures [eggshape, (color (light (light red))mo2)])
