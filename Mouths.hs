@@ -1,5 +1,18 @@
 module Mouths where
 import Graphics.Gloss
+
+{-  generateMouth x y mouthChoice colorChoice
+    The function generates a mouth.
+    RETURNS: picture of mouthChoice with the color colorChoice where centre of mouthChoice is placed in coordinates x y.
+    PRE: --NOT SURE
+    EXAMPLES: generateMouth 0 0 "1" softRed == pictures [(Translate 0 0 (mo1 softRed))]
+-}
+generateMouth :: Float -> Float -> String -> Color -> Picture
+generateMouth x y mo clr
+    | mo == "1"     = pictures [(Translate x y (mo1 clr))]
+    | mo == "2"     = pictures [(Translate x y (mo2 clr))]
+    | mo == "3"     = pictures [(Translate x y (mo3 clr))]
+    | otherwise = Blank
 ---------------------------------------------------------
 -- COORDINATES FOR MOUTH1 --
 mo1p1 = (-75,0)
@@ -42,9 +55,3 @@ mo3 clr = (color clr (thickArc 360 180 150 12.5))
 --dispmo2 = display FullScreen white (pictures [eggshape, (color (light (light red))mo2)])
 --dispmo3 = display FullScreen white (pictures [eggshape,(color (light (light red))mo3)])
 
-generateMouth :: Float -> Float -> String -> Color -> Picture
-generateMouth x y mo clr
-    | mo == "1"     = pictures [(Translate x y (mo1 clr))]
-    | mo == "2"     = pictures [(Translate x y (mo2 clr))]
-    | mo == "3"     = pictures [(Translate x y (mo3 clr))]
-    | otherwise = Blank
