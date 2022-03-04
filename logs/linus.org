@@ -32,12 +32,21 @@ Done some slight work on the CLI for the program.
 I have been very sick for the past week, and work has been slow from my part.
 I have been working on the CLI for the program and will begin work on merging everything afterwards.
 
-** 15:25
+*** 15:25
 CLI input has been made better. Choices have been implemented, and answers can be received.
 Next step, handle the answers we receive.
 
-** 15:29
+*** 15:29
 Scrapping the idea to save avatars to a file, unless we have a bunch of extra time at the end.
 
-** 15:50
+*** 15:50
 Setup webhooks for GitHub and our Discord server, for fun.
+
+** Individual work [2022-3-4 Fri] 
+*** DONE Standardise the generator functions so that the input is the offset rather than the position that they need to be on.
+CLOSED: [2022-3-4 Fri 10:36] 
+
+*** DONE Create fringe function for hair (and fix hairstyles)
+CLOSED: [2022-3-4 Fri 10:52] 
+
+*** TODO Write test cases, not really sure how

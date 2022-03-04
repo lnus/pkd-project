@@ -8,14 +8,28 @@ import Graphics.Gloss
 
 generateHair :: Float -> Float -> String -> Color -> Picture
 generateHair xo yo choice clr
-  | choice == "1" = pictures [color clr (translate x y spikyHair)]
+  | choice == "1" = Blank -- spiky hair is only fringe
   | choice == "2" = pictures [color clr (translate x y longHair)]
-  | choice == "3" = pictures [color clr (translate x y bald)]
+  | choice == "3" = Blank -- bald head is only fringe
   | otherwise = Blank
   where
     x = 0 + xo
     y = 200 + yo
 
+{- generateFringe
+    The front part of generateHair
+-}
+generateFringe :: Float -> Float -> String -> Color -> Picture
+generateFringe xo yo choice clr
+  | choice == "1" = pictures [color clr (translate x y spikyHair)]
+  | choice == "2" = pictures [color clr (translate x y longFringe)]
+  | choice == "3" = pictures [color baldColor (translate (x-200) y bald)]
+  | otherwise = Blank
+  where
+    x = 0 + xo
+    y = 200 + yo
+
+baldColor = withAlpha 0.5 white
 hair = pictures [spikyHair, longHair, bald]
 
 bald = translate 0 75 (rotate 145 (scale 2 1 (circleSolid 50)))
@@ -38,6 +52,7 @@ spikes =
 spike1 = polygon [(-40, 0), (-20, 200), (0, 0)]
 
 longHair = pictures [sideLeftHair, frontHair, sideRightHair]
+longFringe = arcSolid 0 180 400
 
 frontHair = translate 0 0 (scale 3 2 (circleSolid 200))
 

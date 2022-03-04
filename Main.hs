@@ -77,5 +77,6 @@ main = do
       generateEye 0 0 (show eye_choice) lightBlue,
       generateNose 0 0 (show nose_choice) softRed,
       generateMouth 0 (-200) (show mouth_choice) brunette,
-      generateEyebrows 0 100 (show brow_choice) brunette
+      generateEyebrows 0 100 (show brow_choice) brunette,
+      generateFringe 0 0 (show hair_choice) brunette
     ]
