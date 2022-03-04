@@ -1,6 +1,7 @@
 module Colors where
 import Graphics.Gloss
 
+-- MAIN COLORS --
 -- Mainly used for skin.
 lightSkin   = makeColorI 255 230 216 255
 lighterSkin = makeColorI 239 198 173 255
