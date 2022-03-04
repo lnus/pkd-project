@@ -6,6 +6,7 @@ import Eyebrows
 import Eyes
 import FaceShapes
 import Graphics.Gloss
+import Hair
 import Mouths
 import Noses
 import System.Exit (ExitCode (ExitSuccess), exitSuccess, exitWith)
@@ -69,13 +70,12 @@ main = do
   nose_choice <- getChoice "What nose do you want?" ["Nose 1", "Nose 2"]
   mouth_choice <- getChoice "Which mouth do want?!?!!??" ["Mouth 1", "Mouth 2", "Mouth 3"]
   brow_choice <- getChoice "Which eyebrows do you want?" ["Eyebrows 1", "Eyebrows 2", "Eyebrows 3"]
-  if eye_choice == 9 -- FIXME: Make this more dynamic for all choices
-    then exitSuccess
-    else
-      generateRender -- TODO: Make this offset
-        [ generateFaceShape 0 0 (show face_choice) lightSkin,
-          generateEye 200 0 (show eye_choice) lightBlue,
-          generateNose 0 0 (show nose_choice) softRed,
-          generateMouth 0 (-200) (show mouth_choice) brunette,
-          generateEyebrows 0 100 (show brow_choice) coolHair
-        ]
+  hair_choice <- getChoice "Which hair do you want?" ["Hair 1", "Hair 2", "Hair 3"]
+  generateRender -- TODO: Make this offset
+    [ generateHair 0 0 (show hair_choice) brunette,
+      generateFaceShape 0 0 (show face_choice) lightSkin,
+      generateEye 0 0 (show eye_choice) lightBlue,
+      generateNose 0 0 (show nose_choice) softRed,
+      generateMouth 0 (-200) (show mouth_choice) brunette,
+      generateEyebrows 0 100 (show brow_choice) brunette
+    ]

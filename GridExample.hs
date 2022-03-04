@@ -1,3 +1,5 @@
+module GridExample where
+
 import Graphics.Gloss
 
 genX :: Float -> Float -> [(Float, Float)]

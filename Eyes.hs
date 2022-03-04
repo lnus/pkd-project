@@ -9,13 +9,16 @@ import GridExample
     The funciton generates a picture of two eyes.
     RETURNS: pictures of eyeChoice with corresponding x- and y-coordinates with color colorChoice.
     PRE: -- NOT SURE
-    EXAMPLES:   generateEye 200 0 "2" lightBlue == pictures [(Translate (-200) 0 (rEye2 lightBlue)),(Translate 200 0 (lEye2 lightBlue))]
+    EXAMPLES:   generateEye 200 0 "2" lightBlue == pictures [(Translate (-400) 0 (rEye2 lightBlue)),(Translate 400 0 (lEye2 lightBlue))]
 -}
 generateEye :: Float -> Float -> String -> Color -> Picture
-generateEye x y eye clr
-    | eye == "1"     = pictures [(translate (-x) y (rEye1 clr)),(translate x y (lEye1 clr))]
-    | eye == "2"     = pictures [(translate (-x) y (rEye2 clr)),(translate x y (lEye2 clr))]
+generateEye xo yo eye clr
+    | eye == "1"     = pictures [translate (-x) y (rEye1 clr),translate x y (lEye1 clr)]
+    | eye == "2"     = pictures [translate (-x) y (rEye2 clr),translate x y (lEye2 clr)]
     | otherwise = Blank
+    where
+      x = 200+xo
+      y = 0+yo
 
 ------------------------------------------------------------
 -- COORDINATES FOR EYE1 --
@@ -27,10 +30,10 @@ u1Eye4 = (-100, 0)
 u2Eye2 = (-200, 20)
 u2Eye3 = (-150, 20)
 
-upperEyeLid = pictures [(Polygon [u1Eye1,u1Eye2,u2Eye2]),(Polygon[u1Eye2,u1Eye3,u2Eye3,u2Eye2]),(Polygon[u1Eye3,u1Eye4,u2Eye3])]-- change later so that it becomes a solid picture
+upperEyeLid = pictures [Polygon [u1Eye1,u1Eye2,u2Eye2],Polygon[u1Eye2,u1Eye3,u2Eye3,u2Eye2],Polygon[u1Eye3,u1Eye4,u2Eye3]]-- change later so that it becomes a solid picture
 
 ruEyeLid    = upperEyeLid
-luEyeLid    = Translate 350 0 (upperEyeLid)
+luEyeLid    = Translate 350 0 upperEyeLid
 
 loEye1 = (-200, -25)
 loEye2 = (-175, -27)
@@ -38,17 +41,17 @@ loEye3 = (-150, -25)
 lowerEyeLid = Line [loEye1,loEye2,loEye3]
 
 rlEyeLid = lowerEyeLid
-llEyeLid = Translate 350 0 (lowerEyeLid)
+llEyeLid = Translate 350 0 lowerEyeLid
 
-glare  = color (withAlpha 0.5 white) (circleSolid 8) 
+glare  = color (withAlpha 0.5 white) (circleSolid 8)
 rGlare = translate (-185) 5 glare
-lGlare = translate 165 5 glare 
+lGlare = translate 165 5 glare
 
 pupil  = circleSolid 15
 rPupil = translate (-175) 0 pupil
 lPupil = translate 175 0 pupil
 
-iris  = (circleSolid 25)
+iris  = circleSolid 25
 rIris = translate (-175) 0 iris
 lIris = translate 175 0 iris
 
@@ -66,8 +69,8 @@ eyeWhite    = color white (Polygon [eyeW1,eyeW2,eyeW3,eyeW4,eyeW5,eyeW6,eyeW7,ey
 rEyeWhite = eyeWhite
 lEyeWhite = Translate 350 0 eyeWhite
 
-rEye1 clr = (translate 175 0 (pictures [rEyeWhite,(color clr rIris),rPupil,rGlare,ruEyeLid,rlEyeLid]))
-lEye1 clr = (translate (-175) 0 (pictures [lEyeWhite,lEyeWhite,(color clr lIris),lPupil,lGlare,luEyeLid,llEyeLid]))
+rEye1 clr = translate 175 0 (pictures [rEyeWhite,(color clr rIris),rPupil,rGlare,ruEyeLid,rlEyeLid])
+lEye1 clr = translate (-175) 0 (pictures [lEyeWhite,lEyeWhite,(color clr lIris),lPupil,lGlare,luEyeLid,llEyeLid])
 
 normalEyes  = pictures [rEyeWhite,lEyeWhite,rIris,lIris,rPupil,lPupil,rGlare,lGlare,ruEyeLid,luEyeLid,rlEyeLid,llEyeLid]
 bigEyes     = scale 2 2 normalEyes
@@ -79,7 +82,7 @@ rupperLineE2p2 = (-74, 25)
 rupperLineE2p3 = (-65,50)
 rupperLineE2p4 = (-50,60)
 rupperLineE2p5 = (-25,70)
-rupperLineE2p6 = (0,70) 
+rupperLineE2p6 = (0,70)
 rupperLineE2p7 = (25,65)
 rupperLineE2p8 = (50, 50)
 rupperLineE2p9 = (70, 20)
@@ -110,7 +113,7 @@ lowerE2p2 = (-50,-25)
 lowerE2p3 = (-25,-37.5)
 lowerE2p4 = (25,-37.5)
 lowerE2p5 = (50,-25)
-lowerLineE2 = (Line [lowerE2p2,lowerE2p3,lowerE2p4,lowerE2p5])
+lowerLineE2 = Line [lowerE2p2,lowerE2p3,lowerE2p4,lowerE2p5]
 lowerE2p6 = (65,-12.5)
 
 rglare2 = translate (-25) 25 (color (withAlpha 0.4 white) (circleSolid 15))
@@ -124,7 +127,7 @@ lupperLineE2p2 = (74, 25)
 lupperLineE2p3 = (65,50)
 lupperLineE2p4 = (50,60)
 lupperLineE2p5 = (25,70)
-lupperLineE2p6 = (0,70) 
+lupperLineE2p6 = (0,70)
 lupperLineE2p7 = (-25,65)
 lupperLineE2p8 = (-50, 50)
 lupperLineE2p9 = (-70, 20)
@@ -140,7 +143,7 @@ lupperLowE2p8 = (-50,45)
 lupperLowE2p9 = (-70,15)
 
 le2polygon1 = Polygon [lupperLineE2p1,lupperLineE2p2,lupperLowE2p2,lupperLineE2p1]
-le2polygon2 = Polygon [lupperLineE2p2,lupperLineE2p3,lupperLowE2p3,lupperLowE2p2]                 
+le2polygon2 = Polygon [lupperLineE2p2,lupperLineE2p3,lupperLowE2p3,lupperLowE2p2]
 le2polygon3 = Polygon [lupperLineE2p3,lupperLineE2p4,lupperLowE2p4,lupperLowE2p3]
 le2polygon4 = Polygon [lupperLineE2p4,lupperLineE2p5,lupperLowE2p5,lupperLowE2p4]
 le2polygon5 = Polygon [lupperLineE2p5,lupperLineE2p6,lupperLowE2p6,lupperLowE2p5]
@@ -155,7 +158,7 @@ llowerE2p2 = (-50,-25)
 llowerE2p3 = (-25,-37.5)
 llowerE2p4 = (25,-37.5)
 llowerE2p5 = (50,-25)
-llowerLineE2 = (Line [llowerE2p2,llowerE2p3,llowerE2p4,llowerE2p5])
+llowerLineE2 = Line [llowerE2p2,llowerE2p3,llowerE2p4,llowerE2p5]
 llowerE2p6 = (65,-12.5)
 
 lglare2 = translate (-25) 25 (color (withAlpha 0.4 white) (circleSolid 15))
@@ -163,8 +166,8 @@ lpupil2 = translate 0 17 (circleSolid 25)
 liris2 = translate 0 17 (circleSolid 50)
 lwhite2 = color white (Polygon [lupperLineE2p1,lupperLineE2p2,lupperLineE2p3,lupperLineE2p4,lupperLineE2p5,lupperLineE2p6,lupperLineE2p7,lupperLineE2p8,lupperLineE2p9,lupperLineE2p10,llowerE2p1,llowerE2p2,llowerE2p3,llowerE2p4,llowerE2p5,llowerE2p6,lupperLineE2p1])
 -----------------------------------------------------
-rEye2 clr = (pictures [rwhite2,(color clr riris2),rpupil2,rglare2,lowerLineE2,upperEye2Lid])
-lEye2 clr = (pictures [lwhite2,(color clr liris2),lpupil2,lglare2,llowerLineE2,lupperEye2Lid])
+rEye2 clr = pictures [rwhite2,(color clr riris2),rpupil2,rglare2,lowerLineE2,upperEye2Lid]
+lEye2 clr = pictures [lwhite2,(color clr liris2),lpupil2,lglare2,llowerLineE2,lupperEye2Lid]
 -----------------------------------------------------
 
 -- test3Eye2 = display FullScreen white (pictures [(color darkerSkin eggshape),(generateEye 200 0 "2" lightBlue)])
