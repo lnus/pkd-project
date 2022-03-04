@@ -1,5 +1,6 @@
 module Main where
 
+import System.Random
 import Colors
 import Control.Exception
 import Eyebrows
@@ -55,28 +56,37 @@ getChoice question options = do
         SomeException -> IO Option
     )
 
+calcRandom :: Int -> Float -> Float
+calcRandom base weight = fromIntegral base * weight
+
 {- main
    Run the generator
    Side-effects: Quite a lot, actually
 -}
--- TODO: Combine inputs from Eyes, Face, Eyebrows etc...
 -- TODO: More creative descriptions for options, possibly
 main :: IO ()
 main = do
   putStrLn "Generate a face!"
-  face_choice <- getChoice "Which face do you want?" ["Face 1", "Face 2", "Face 3", "Face 4"]
-  eye_choice <- getChoice "What eyes do you want?" ["Eye 1", "Eye 2"]
+
+  faceChoice <- getChoice "Which face do you want?" ["Face 1", "Face 2", "Face 3", "Face 4"]
+  eyeChoice <- getChoice "What eyes do you want?" ["Eye 1", "Eye 2"]
   -- TODO: Add check for eye-color
-  nose_choice <- getChoice "What nose do you want?" ["Nose 1", "Nose 2"]
-  mouth_choice <- getChoice "Which mouth do want?!?!!??" ["Mouth 1", "Mouth 2", "Mouth 3"]
-  brow_choice <- getChoice "Which eyebrows do you want?" ["Eyebrows 1", "Eyebrows 2", "Eyebrows 3"]
-  hair_choice <- getChoice "Which hair do you want?" ["Hair 1", "Hair 2", "Hair 3"]
-  generateRender -- TODO: Make this offset
-    [ generateHair 0 0 (show hair_choice) brunette,
-      generateFaceShape 0 0 (show face_choice) lightSkin,
-      generateEye 0 0 (show eye_choice) lightBlue,
-      generateNose 0 0 (show nose_choice) softRed,
-      generateMouth 0 (-200) (show mouth_choice) brunette,
-      generateEyebrows 0 100 (show brow_choice) brunette,
-      generateFringe 0 0 (show hair_choice) brunette
+  noseChoice <- getChoice "What nose do you want?" ["Nose 1", "Nose 2"]
+  mouthChoice <- getChoice "Which mouth do want?!?!!??" ["Mouth 1", "Mouth 2", "Mouth 3"]
+  browChoice <- getChoice "Which eyebrows do you want?" ["Eyebrows 1", "Eyebrows 2", "Eyebrows 3"]
+  hairChoice <- getChoice "Which hair do you want?" ["Hair 1", "Hair 2", "Hair 3"]
+
+  randomWeight <- randomIO :: IO Float -- creates random between 0-1, this will scale the base
+  randomBase <- randomRIO (-100, 100) :: IO Int -- create random between -100-100, base value of the randomness
+
+  generateRender
+    [ generateHair 0 0 (show hairChoice) brunette,
+      generateFaceShape 0 0 (show faceChoice) lightSkin,
+      -- randomness implementation examples
+      -- calcRandom should generate a base and weight on its own in the maybe?
+      generateEye (calcRandom randomBase randomWeight) 0 (show eyeChoice) lightBlue,
+      generateNose (calcRandom randomBase randomWeight) 0 (show noseChoice) softRed, 
+      generateMouth 0 (-200) (show mouthChoice) brunette,
+      generateEyebrows 0 100 (show browChoice) brunette,
+      generateFringe 0 0 (show hairChoice) brunette
     ]

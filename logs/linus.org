@@ -50,3 +50,5 @@ CLOSED: [2022-3-4 Fri 10:36]
 CLOSED: [2022-3-4 Fri 10:52] 
 
 *** TODO Write test cases, not really sure how
+
+*** TODO Implement randomness to positioning.
