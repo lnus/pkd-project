@@ -4,6 +4,19 @@ import Colors
 import FaceShapes
 import GridExample
 
+
+{-  generateEye x y eyeChoice colorChoice
+    The funciton generates a picture of two eyes.
+    RETURNS: pictures of eyeChoice with corresponding x- and y-coordinates with color colorChoice.
+    PRE: -- NOT SURE
+    EXAMPLES:   generateEye 200 0 "2" lightBlue == pictures [(Translate (-200) 0 (rEye2 lightBlue)),(Translate 200 0 (lEye2 lightBlue))]
+-}
+generateEye :: Float -> Float -> String -> Color -> Picture
+generateEye x y eye clr
+    | eye == "1"     = pictures [(translate (-x) y (rEye1 clr)),(translate x y (lEye1 clr))]
+    | eye == "2"     = pictures [(translate (-x) y (rEye2 clr)),(translate x y (lEye2 clr))]
+    | otherwise = Blank
+
 ------------------------------------------------------------
 -- COORDINATES FOR EYE1 --
 u1Eye1 = (-250, 0)
@@ -153,17 +166,5 @@ lwhite2 = color white (Polygon [lupperLineE2p1,lupperLineE2p2,lupperLineE2p3,lup
 rEye2 clr = (pictures [rwhite2,(color clr riris2),rpupil2,rglare2,lowerLineE2,upperEye2Lid])
 lEye2 clr = (pictures [lwhite2,(color clr liris2),lpupil2,lglare2,llowerLineE2,lupperEye2Lid])
 -----------------------------------------------------
-
-{-  generateEye x y eyeChoice colorChoice
-    The funciton generates a picture of two eyes.
-    RETURNS: pictures of eyeChoice with corresponding x- and y-coordinates with color colorChoice.
-    PRE: -- NOT SURE
-    EXAMPLES:   generateEye 200 0 "2" lightBlue == pictures [(Translate (-200) 0 (rEye2 lightBlue)),(Translate 200 0 (lEye2 lightBlue))]
--}
-generateEye :: Float -> Float -> String -> Color -> Picture
-generateEye x y eye clr
-    | eye == "1"     = pictures [(translate (-x) y (rEye1 clr)),(translate x y (lEye1 clr))]
-    | eye == "2"     = pictures [(translate (-x) y (rEye2 clr)),(translate x y (lEye2 clr))]
-    | otherwise = Blank
 
 -- test3Eye2 = display FullScreen white (pictures [(color darkerSkin eggshape),(generateEye 200 0 "2" lightBlue)])
