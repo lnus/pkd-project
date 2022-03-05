@@ -1,6 +1,26 @@
 module Colors where
 import Graphics.Gloss
 
+generateColor :: String -> String -> Color
+generateColor part clr
+    | part == "1"  = case clr of
+                            "1" -> lightSkin
+                            "2" -> lighterSkin
+                            "3" -> darkerSkin
+                            "4" -> darkSkin
+    | part == "2"  = case clr of
+                            "1" -> lightBlue
+                            "2" -> lightGreen
+                            "3" -> brown
+    | part == "3"  = case clr of
+                            "1" -> softRed
+                            "2" -> darkerSoftRed
+    | part == "4"  = case clr of
+                            "1" -> blond
+                            "2" -> brunette
+                            "3" -> darkHair
+                            "4" -> coolHair
+
 -- MAIN COLORS --
 -- Mainly used for skin.
 lightSkin   = makeColorI 255 230 216 255
