@@ -42,29 +42,32 @@ Scrapping the idea to save avatars to a file, unless we have a bunch of extra ti
 *** 15:50
 Setup webhooks for GitHub and our Discord server, for fun.
 
-** Individual work [2022-3-4 Fri] 
+** Individual work [2022-03-04 Fri]
 *** DONE Standardise the generator functions so that the input is the offset rather than the position that they need to be on.
-CLOSED: [2022-3-4 Fri 10:36] 
+CLOSED: [2022-03-04 Fri 10:36]
 
 *** DONE Create fringe function for hair (and fix hairstyles)
-CLOSED: [2022-3-4 Fri 10:52] 
+CLOSED: [2022-03-04 Fri 10:52]
 
 *** DONE Implement randomness to positioning.
-CLOSED: [2022-3-7 Mon 09:52] 
+CLOSED: [2022-03-07 Mon 09:52]
 
 *** DONE Write test cases, not really sure how
-CLOSED: [2022-3-7 Mon 10:13] 
+CLOSED: [2022-03-07 Mon 10:13]
 
-** Final work [2022-3-7 Mon]
-Integrating everything and updating documentation. 
-This in order to create the final version to upload as a release.
+** Final work [2022-03-07 Mon]
+*** DONE Integrate everything and update documentation.
+CLOSED: [2022-03-07 mån 10:12]
+(This in order to create the final version to upload as a release.)
 
-Refactored program to make imports explicit + changed some slight code formatting.
+*** DONE Refactor program to make imports explicit + changed some slight code formatting.
+CLOSED: [2022-03-07 mån 11:30]
 
-Updating tests for generator functions and getting ready to push final version.
+*** DONE Update tests for generator functions and getting ready to push final version.
+CLOSED: [2022-03-07 mån 11:59]
 
-[11:00-12:00]
-Pushing final version, v1.0.
+*** DONE Push final version, v1.0.
+CLOSED: [2022-03-07 mån 12:59]
 
-[13:00-15:00]
-Writing the report + creating an usage guide for both the pre-compiled binary + if you want to build the program from source.
+*** DONE Writing the report + creating an usage guide for both the pre-compiled binary + if you want to build the program from source.
+CLOSED: [2022-03-07 mån 13:59]
