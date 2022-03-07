@@ -8,10 +8,10 @@ import Graphics.Gloss
     EXAMPLES: generateMouth 0 0 "1" softRed == pictures [(Translate 0 0 (mo1 softRed))]
 -}
 generateMouth :: Float -> Float -> String -> Color -> Picture
-generateMouth x y mo clr
-    | mo == "1"     = pictures [(Translate x y (mo1 clr))]
-    | mo == "2"     = pictures [(Translate x y (mo2 clr))]
-    | mo == "3"     = pictures [(Translate x y (mo3 clr))]
+generateMouth xo yo mo clr
+    | mo == "1"     = pictures [Translate xo (-200+yo) (mo1 clr)]
+    | mo == "2"     = pictures [Translate xo (-200+yo) (mo2 clr)]
+    | mo == "3"     = pictures [Translate xo (-200+yo) (mo3 clr)]
     | otherwise = Blank
 ---------------------------------------------------------
 -- COORDINATES FOR MOUTH1 --
@@ -47,7 +47,7 @@ mo1Lowerlip = pictures [mo1LowPol1,mo1LowPol2,mo1LowPol3]
 --------------------------------------------------------------------------
 --POSSIBLE MOUTHS--
 
-mo1 clr = translate 0 (-50) (scale 2 1.5 (pictures [(color (dim clr) mo1Upperlip),(color clr mo1Lowerlip)]))
+mo1 clr = translate 0 (-50) (scale 2 1.5 (pictures [color (dim clr) mo1Upperlip,color clr mo1Lowerlip]))
 mo2 clr = scale 0.75 0.50 (color clr (thickArc 180 360 150 12.5))
 mo3 clr = translate 0 (-100) (scale 0.75 0.50 (color clr (thickArc 360 180 150 12.5)))
 

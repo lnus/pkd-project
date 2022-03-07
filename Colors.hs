@@ -3,23 +3,28 @@ import Graphics.Gloss
 
 generateColor :: String -> String -> Color
 generateColor part clr
-    | part == "1"  = case clr of
+    | part == "1"  = case clr of -- skin color
                             "1" -> lightSkin
                             "2" -> lighterSkin
-                            "3" -> darkerSkin
-                            "4" -> darkSkin
-    | part == "2"  = case clr of
+                            "3" -> darkSkin
+                            "4" -> darkerSkin
+                            _ -> white
+    | part == "2"  = case clr of -- eye color
                             "1" -> lightBlue
                             "2" -> lightGreen
                             "3" -> brown
-    | part == "3"  = case clr of
+                            _ -> white
+    | part == "3"  = case clr of -- mouth and nose
                             "1" -> softRed
                             "2" -> darkerSoftRed
-    | part == "4"  = case clr of
+                            _ -> white
+    | part == "4"  = case clr of -- hair color
                             "1" -> blond
                             "2" -> brunette
                             "3" -> darkHair
                             "4" -> coolHair
+                            _ -> white
+    | otherwise = white
 
 -- MAIN COLORS --
 -- Mainly used for skin.
