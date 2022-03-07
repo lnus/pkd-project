@@ -63,4 +63,8 @@ Refactored program to make imports explicit + changed some slight code formattin
 
 Updating tests for generator functions and getting ready to push final version.
 
+[11:00-12:00]
 Pushing final version, v1.0.
+
+[13:00-15:00]
+Writing the report + creating an usage guide for both the pre-compiled binary + if you want to build the program from source.

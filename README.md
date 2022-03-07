@@ -33,4 +33,4 @@ If you're running on Windows, I would refer to [this guide!](https://linusblog.n
 
 The program is run through a CLI, where the options will be displayed to you with explanations for the different options in the program window.
 
-To start the program, run the downloaded binary or by compiling the Main.hs file.
+To start the program, run the downloaded binary from the releases page or by compiling the Main.hs file.
