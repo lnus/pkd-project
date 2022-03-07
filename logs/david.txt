@@ -47,5 +47,10 @@ Functions and did somewhat finish hair
 22-03-03 10:10-11:15
 Started doc for report
 
-22-03-04 11:30-12:00 14:40
+22-03-04 11:30-12:00 14:40-16:30
 Working on report
+Some specifications and cleaning in code 
+
+22-03-07 09:00-11:30 13:00-15:00
+We finished program, writing on report
+Finished report
