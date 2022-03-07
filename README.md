@@ -23,7 +23,7 @@ cabal update
 cabal install gloss
 ```
 
-Compile the cli.hs file and run it.
+Compile the Main.hs file and run it.
 
 #### Windows
 
