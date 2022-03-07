@@ -1,7 +1,8 @@
 module Noses where
 
-import Colors
+import Colors ()
 import Graphics.Gloss
+    ( Color, color, pictures, Picture(Polygon, Translate, Blank) )
 
 {-  generateNose x y noseChoice colorChoice
     The function generates a nose.
@@ -11,8 +12,8 @@ import Graphics.Gloss
 -}
 generateNose :: Float -> Float -> String -> Color -> Picture
 generateNose x y no clr
-  | no == "1" = pictures [(Translate x y (nose1 clr))]
-  | no == "2" = pictures [(Translate x y (nose2 clr))]
+  | no == "1" = pictures [Translate x y (nose1 clr)]
+  | no == "2" = pictures [Translate x y (nose2 clr)]
   | otherwise = Blank
 
 --------------------------------------------------
@@ -21,7 +22,7 @@ nose1p1 = (0, 12.5)
 nose1p2 = (-50, -150)
 nose1p3 = (50, -150)
 
-nose1 clr = (color clr (Polygon [nose1p1, nose1p2, nose1p3]))
+nose1 clr = color clr (Polygon [nose1p1, nose1p2, nose1p3])
 
 -- COORDINATES FOR NOSE2 --
 nose2p1 = (-10, 12.5)
@@ -34,4 +35,4 @@ nose2p6 = (10, 12.5)
 nose2polygon1 = Polygon [nose2p1, nose2p2, nose2p5, nose2p6]
 nose2polygon2 = Polygon [nose2p2, nose2p3, nose2p4, nose2p5]
 
-nose2 clr = (color clr (pictures [nose2polygon1, nose2polygon2]))
+nose2 clr = color clr (pictures [nose2polygon1, nose2polygon2])

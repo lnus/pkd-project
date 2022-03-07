@@ -1,6 +1,12 @@
 module Eyebrows where
 
 import Graphics.Gloss
+    ( Color,
+      color,
+      pictures,
+      polygon,
+      translate,
+      Picture(Translate, Blank) )
 
 {-generateEyebrows x-pos y-pos choiceOfEyebrows color
 Function takes a string and returns a pictures of an eyebrow of their choice or a blank picture

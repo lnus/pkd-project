@@ -1,6 +1,18 @@
 module Hair where
 
 import Graphics.Gloss
+    ( Color,
+      white,
+      withAlpha,
+      arcSolid,
+      circleSolid,
+      color,
+      pictures,
+      polygon,
+      rotate,
+      scale,
+      translate,
+      Picture(Blank) )
 
 {-generateHair x y choiceOfHair clr
     Creates a hair on the back of the head (Should be used with GenerateFringe)

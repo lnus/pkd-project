@@ -1,31 +1,43 @@
 module Main where
 
-import Colors
-import Control.Exception
-import Eyebrows
-import Eyes
-import FaceShapes
+import Colors ( generateColor )
+import Control.Exception ( SomeException, catch, evaluate )
+import Eyebrows ( generateEyebrows )
+import Eyes ( generateEye )
+import FaceShapes ( generateFaceShape )
 import Graphics.Gloss
-import Hair
-import Mouths
-import Noses
+    ( white, pictures, text, display, Display(InWindow), Picture )
+import Hair ( generateHair, generateFringe )
+import Mouths ( generateMouth )
+import Noses ( generateNose )
 import System.Exit (ExitCode (ExitSuccess), exitSuccess, exitWith)
-import System.Random
+import System.Random ( randomIO, randomRIO )
 
 type Option = Int
 
+{- generateRender 
+  Displays a render from a given list of pictures.
+  This is to conserve processing power to only do the render once per run.
+  PRE: A display server is running on the host device.
+-}
 generateRender :: [Picture] -> IO ()
 generateRender [] = display (InWindow "Error" (1500, 1000) (10, 10)) white (text "No input")
 generateRender pic = display (InWindow "Face" (1500, 1000) (10, 10)) white (pictures pic)
 
+{- presentOptions 
+  Takes all of the options from getChoice and presents them on screen
+  RETURNS: All of the options, numbered, from the list
+-}
 presentOptions :: Int -> [String] -> String
 presentOptions _ [] = ""
 presentOptions aux [x] = show aux ++ ". " ++ x
 presentOptions aux (x : xs) = show aux ++ ". " ++ x ++ "\n" ++ presentOptions (aux + 1) xs
 
--- Is this necessary? ^
-
--- TODO: Document this
+{- getChoice 
+  Locks the user in to a choice dialouge, 
+  forcing them to pick between the options presented.
+  RETURNS: The option picked as an IO Option (IO Int)
+-}
 getChoice :: String -> [String] -> IO Option
 getChoice question options = do
   putStrLn question
@@ -57,7 +69,8 @@ calcRandom base weight = fromIntegral base * weight
 
 {- main
    Runs the generator
-   Side-effects: Not sure yet, if the OpenGL driver is bad it might bork everything
+   PRE: A running display server on host device.
+   Side-effects: If the OpenGL driver is bad it might bork everything
 -}
 main :: IO ()
 main = do

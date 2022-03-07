@@ -1,6 +1,16 @@
 module GridExample where
 
 import Graphics.Gloss
+    ( white,
+      circleSolid,
+      line,
+      pictures,
+      polygon,
+      text,
+      display,
+      Display(InWindow),
+      Path,
+      Picture(Translate, Rotate) )
 
 genX :: Float -> Float -> [(Float, Float)]
 genX aux max | aux < max = (aux, 0) : (aux, max) : (aux, 0) : genX (aux + 50) max
@@ -28,7 +38,7 @@ leye = Translate 60 0 (pictures [line [(-25, 0), (0, 25), (50, 0), (0, -25), (-2
 
 reye = Translate (-60) 0 (pictures [line [(-50, 0), (0, 25), (25, 0), (0, -25), (-50, 0)], circleSolid 5])
 
-moth = Translate (50) (-100) (Rotate 270 (text "D"))
+moth = Translate 50 (-100) (Rotate 270 (text "D"))
 
 cool = Translate (-200) (-200) (text "NANI!?")
 

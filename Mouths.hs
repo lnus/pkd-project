@@ -1,5 +1,13 @@
 module Mouths where
 import Graphics.Gloss
+    ( Color,
+      dim,
+      color,
+      pictures,
+      scale,
+      thickArc,
+      translate,
+      Picture(Polygon, Translate, Blank) )
 
 {-  generateMouth x y mouthChoice colorChoice
     The function generates a mouth.

@@ -1,5 +1,5 @@
 module Colors where
-import Graphics.Gloss
+import Graphics.Gloss ( makeColorI, Color, white )
 
 generateColor :: String -> String -> Color
 generateColor part clr

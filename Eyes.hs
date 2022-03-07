@@ -1,8 +1,17 @@
 module Eyes where
 import Graphics.Gloss
-import Colors
-import FaceShapes
-import GridExample
+    ( Color,
+      white,
+      withAlpha,
+      circleSolid,
+      color,
+      pictures,
+      scale,
+      translate,
+      Picture(Polygon, Blank, Translate, Line) )
+import Colors ()
+import FaceShapes ()
+import GridExample ()
 
 
 {-  generateEye x y eyeChoice colorChoice
@@ -69,8 +78,8 @@ eyeWhite    = color white (Polygon [eyeW1,eyeW2,eyeW3,eyeW4,eyeW5,eyeW6,eyeW7,ey
 rEyeWhite = eyeWhite
 lEyeWhite = Translate 350 0 eyeWhite
 
-rEye1 clr = translate 175 0 (pictures [rEyeWhite,(color clr rIris),rPupil,rGlare,ruEyeLid,rlEyeLid])
-lEye1 clr = translate (-175) 0 (pictures [lEyeWhite,lEyeWhite,(color clr lIris),lPupil,lGlare,luEyeLid,llEyeLid])
+rEye1 clr = translate 175 0 (pictures [rEyeWhite,color clr rIris,rPupil,rGlare,ruEyeLid,rlEyeLid])
+lEye1 clr = translate (-175) 0 (pictures [lEyeWhite,lEyeWhite,color clr lIris,lPupil,lGlare,luEyeLid,llEyeLid])
 
 normalEyes  = pictures [rEyeWhite,lEyeWhite,rIris,lIris,rPupil,lPupil,rGlare,lGlare,ruEyeLid,luEyeLid,rlEyeLid,llEyeLid]
 bigEyes     = scale 2 2 normalEyes
@@ -166,8 +175,8 @@ lpupil2 = translate 0 17 (circleSolid 25)
 liris2 = translate 0 17 (circleSolid 50)
 lwhite2 = color white (Polygon [lupperLineE2p1,lupperLineE2p2,lupperLineE2p3,lupperLineE2p4,lupperLineE2p5,lupperLineE2p6,lupperLineE2p7,lupperLineE2p8,lupperLineE2p9,lupperLineE2p10,llowerE2p1,llowerE2p2,llowerE2p3,llowerE2p4,llowerE2p5,llowerE2p6,lupperLineE2p1])
 -----------------------------------------------------
-rEye2 clr = pictures [rwhite2,(color clr riris2),rpupil2,rglare2,lowerLineE2,upperEye2Lid]
-lEye2 clr = pictures [lwhite2,(color clr liris2),lpupil2,lglare2,llowerLineE2,lupperEye2Lid]
+rEye2 clr = pictures [rwhite2,color clr riris2,rpupil2,rglare2,lowerLineE2,upperEye2Lid]
+lEye2 clr = pictures [lwhite2,color clr liris2,lpupil2,lglare2,llowerLineE2,lupperEye2Lid]
 -----------------------------------------------------
 
 -- test3Eye2 = display FullScreen white (pictures [(color darkerSkin eggshape),(generateEye 200 0 "2" lightBlue)])

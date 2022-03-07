@@ -1,5 +1,11 @@
 module FaceShapes where
 import Graphics.Gloss
+    ( Color,
+      circleSolid,
+      color,
+      pictures,
+      polygon,
+      Picture(Blank, Translate) )
 
 {-  generateFaceShape x y faceShapeChoice colorChoice
     The function generates a face shape.
