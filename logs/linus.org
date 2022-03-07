@@ -50,10 +50,15 @@ CLOSED: [2022-3-4 Fri 10:36]
 CLOSED: [2022-3-4 Fri 10:52] 
 
 *** DONE Implement randomness to positioning.
-CLOSED: [2022-3-7 Mon 10:52] 
+CLOSED: [2022-3-7 Mon 09:52] 
 
-*** TODO Write test cases, not really sure how
+*** DONE Write test cases, not really sure how
+CLOSED: [2022-3-7 Mon 10:13] 
 
 ** Final work [2022-3-7 Mon]
 Integrating everything and updating documentation. 
 This in order to create the final version to upload as a release.
+
+Refactored program to make imports explicit + changed some slight code formatting.
+
+Updating tests for generator functions and getting ready to push final version.
