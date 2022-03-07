@@ -62,3 +62,5 @@ This in order to create the final version to upload as a release.
 Refactored program to make imports explicit + changed some slight code formatting.
 
 Updating tests for generator functions and getting ready to push final version.
+
+Pushing final version, v1.0.

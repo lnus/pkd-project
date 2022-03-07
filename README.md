@@ -1,4 +1,4 @@
-# PKD Project - Image app thing 🤯
+# PKD Project - Face Generator 🎨 
 
 Using [Gloss Library](https://hackage.haskell.org/package/gloss) to generate faces based on user input.
 
@@ -31,4 +31,6 @@ If you're running on Windows, I would refer to [this guide!](https://linusblog.n
 
 ## Usage
 
-WIP - will put screenshots and more accurate directions here once CLI is up to par.
+The program is run through a CLI, where the options will be displayed to you with explanations for the different options in the program window.
+
+To start the program, run the downloaded binary or by compiling the Main.hs file.
