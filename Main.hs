@@ -42,7 +42,7 @@ getChoice :: String -> [String] -> IO Option
 getChoice question options = do
   putStrLn question
   putStrLn (presentOptions 1 options)
-  putStrLn "9. Exit the program"
+  putStrLn "9. Skip"
   catch
     ( do
         line <- getLine
